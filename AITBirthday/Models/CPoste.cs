@@ -29,8 +29,8 @@ namespace AITBirthday.Models
             mDescription = string.Empty;
             mIsDelete = 0;
 
-            mDescription = string.Empty;
-            mDescription = string.Empty;
+            mUserCreation = string.Empty;
+            mUserLastModification = string.Empty;
 
             mDateCreation = new DateTime();
             mDateLastModification = new DateTime();

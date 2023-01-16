@@ -560,7 +560,7 @@ namespace AITBirthday.DAO
 
         #region EntiteAITEK
 
-        public List<CEntiteAITEK> getAllEntiteAITEK(string Chaineconnex)
+        public List<CEntiteAITEK> getAllEntiteAITEK(string Chaineconnex,List<CPays>ListePays)
         {
             var listPays = new List<CEntiteAITEK>();
             using (mConnection = mProvider.CreateConnection())
@@ -585,7 +585,7 @@ namespace AITBirthday.DAO
                                     mId = reader["Id"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Id"]),
                                     mIdPays = reader["IdPays"] == DBNull.Value ? 0 : Convert.ToInt32(reader["IdPays"]),
                                     mLibelleEntiteAITEK = reader["LibelleEntiteAITEK"] == DBNull.Value ? string.Empty : reader["LibelleEntiteAITEK"] as string,
-                                    mLibellePays = reader["LibellePays"] == DBNull.Value ? string.Empty : reader["LibellePays"] as string,
+                                    mLibellePays = GetLibellePays(reader["IdPays"] == DBNull.Value ? 0 : Convert.ToInt32(reader["IdPays"]),ListePays),
                                    
                                     mIsDelete = reader["IsDelete"] == DBNull.Value ? 0 : Convert.ToInt16(reader["IsDelete"]),
                                     mUserCreation = reader["UserCreation"] == DBNull.Value ? string.Empty : reader["UserCreation"] as string,
@@ -616,6 +616,25 @@ namespace AITBirthday.DAO
                 }
             }
         }
+
+
+        public string GetLibellePays(int idpays,List<CPays>LP)
+        {
+            string ret = string.Empty;
+            try
+            {
+                var CRET = LP.FirstOrDefault(c => c.mId == idpays);
+
+                ret = CRET.mLibellePays;
+
+                return ret;
+            }
+            catch(Exception ex)
+            {
+                return ret;
+            }
+        }
+
 
         public bool addEntiteAITEK(CEntiteAITEK client, string ChaineConx)
         {

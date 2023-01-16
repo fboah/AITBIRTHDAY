@@ -67,6 +67,30 @@
     <Compile Include="Models\CPoste.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Direction\AjoutDirection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Direction\AjoutDirection.Designer.cs">
+      <DependentUpon>AjoutDirection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Direction\FenDirection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Direction\FenDirection.Designer.cs">
+      <DependentUpon>FenDirection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EntiteAITEK\AjoutEntiteAITEK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EntiteAITEK\AjoutEntiteAITEK.Designer.cs">
+      <DependentUpon>AjoutEntiteAITEK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EntiteAITEK\FenEntiteAITEK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EntiteAITEK\FenEntiteAITEK.Designer.cs">
+      <DependentUpon>FenEntiteAITEK.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Poste\AjoutPoste.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +117,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Direction\AjoutDirection.resx">
+      <DependentUpon>AjoutDirection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Direction\FenDirection.resx">
+      <DependentUpon>FenDirection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EntiteAITEK\AjoutEntiteAITEK.resx">
+      <DependentUpon>AjoutEntiteAITEK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EntiteAITEK\FenEntiteAITEK.resx">
+      <DependentUpon>FenEntiteAITEK.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Poste\AjoutPoste.resx">
       <DependentUpon>AjoutPoste.cs</DependentUpon>
     </EmbeddedResource>

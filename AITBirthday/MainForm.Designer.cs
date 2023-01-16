@@ -31,6 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.créationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.posteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.directionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entitéAITEKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,9 @@
             // créationToolStripMenuItem
             // 
             this.créationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.posteToolStripMenuItem});
+            this.posteToolStripMenuItem,
+            this.directionToolStripMenuItem,
+            this.entitéAITEKToolStripMenuItem});
             this.créationToolStripMenuItem.Name = "créationToolStripMenuItem";
             this.créationToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.créationToolStripMenuItem.Text = "Création";
@@ -58,6 +62,20 @@
             this.posteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.posteToolStripMenuItem.Text = "Poste";
             this.posteToolStripMenuItem.Click += new System.EventHandler(this.posteToolStripMenuItem_Click);
+            // 
+            // directionToolStripMenuItem
+            // 
+            this.directionToolStripMenuItem.Name = "directionToolStripMenuItem";
+            this.directionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.directionToolStripMenuItem.Text = "Direction";
+            this.directionToolStripMenuItem.Click += new System.EventHandler(this.directionToolStripMenuItem_Click);
+            // 
+            // entitéAITEKToolStripMenuItem
+            // 
+            this.entitéAITEKToolStripMenuItem.Name = "entitéAITEKToolStripMenuItem";
+            this.entitéAITEKToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.entitéAITEKToolStripMenuItem.Text = "Entité AITEK";
+            this.entitéAITEKToolStripMenuItem.Click += new System.EventHandler(this.entitéAITEKToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -84,6 +102,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem créationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem posteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem directionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entitéAITEKToolStripMenuItem;
     }
 }
 
