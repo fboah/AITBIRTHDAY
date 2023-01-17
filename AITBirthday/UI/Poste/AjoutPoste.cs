@@ -15,7 +15,6 @@ namespace AITBirthday.UI.Poste
 {
     public partial class AjoutPoste : Form
     {
-
         private string Appli = "AITBIRTHDAY";
 
         private string myChaine;
@@ -38,8 +37,8 @@ namespace AITBirthday.UI.Poste
             this.myObjectPoste = ObjectPoste;
             
         }
-        
 
+    
         private void AjoutPoste_Load(object sender, EventArgs e)
         {
             try
@@ -57,7 +56,7 @@ namespace AITBirthday.UI.Poste
             }
             catch (Exception ex)
             {
-                var msg = "AjoutPoste -> AjoutDemandeur_Load-> TypeErreur: " + ex.Message;
+                var msg = "AjoutPoste -> AjoutPoste_Load-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
         }
@@ -67,6 +66,8 @@ namespace AITBirthday.UI.Poste
             this.Close();
         }
 
+
+      
         private void sBtnEnregistrer_Click(object sender, EventArgs e)
         {
             //Enregistrer

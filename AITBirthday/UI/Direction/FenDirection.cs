@@ -31,6 +31,7 @@ namespace AITBirthday.UI.Direction
             this.myChaine = CH;
         }
 
+       
         private void FenDirection_Load(object sender, EventArgs e)
         {
             try
@@ -39,11 +40,13 @@ namespace AITBirthday.UI.Direction
             }
             catch (Exception ex)
             {
-
+                var msg = "FenDirection -> FenDirection_Load-> TypeErreur: " + ex.Message;
+                CLog.Log(msg);
             }
         }
 
 
+      
         public void ReloadGrid()
         {
             try
@@ -60,6 +63,8 @@ namespace AITBirthday.UI.Direction
 
         }
 
+
+       
         private void sBtnAjouter_Click(object sender, EventArgs e)
         {
             try
@@ -79,6 +84,8 @@ namespace AITBirthday.UI.Direction
             }
         }
 
+
+      
         private void sBtnSupprimer_Click(object sender, EventArgs e)
         {
             bool ret = false;
@@ -135,11 +142,13 @@ namespace AITBirthday.UI.Direction
             }
             catch (Exception ex)
             {
-                var msg = "FenDemandeur -> sBtnSupprimer_Click-> TypeErreur: " + ex.Message;
+                var msg = "FenDirection -> sBtnSupprimer_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
         }
 
+
+       
         private void sBtnModifier_Click(object sender, EventArgs e)
         {
             try
@@ -175,7 +184,7 @@ namespace AITBirthday.UI.Direction
             }
             catch (Exception ex)
             {
-                var msg = "FenDemandeur -> sBtnModifier_Click-> TypeErreur: " + ex.Message;
+                var msg = "FenDirection -> sBtnModifier_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
 

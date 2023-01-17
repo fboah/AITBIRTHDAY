@@ -31,6 +31,10 @@ namespace AITBirthday.Models
         public DateTime mDateCreation { get; set; }
         public DateTime mDateLastModification { get; set; }
 
+        public string mDateAnniversaire { get; set; }//Mois-Jour--NON STOCKE
+
+        public string mEmail { get; set; }
+
 
         public CEmploye()
         {
@@ -55,6 +59,10 @@ namespace AITBirthday.Models
 
             mDateCreation = new DateTime();
             mDateLastModification = new DateTime();
+
+            mDateAnniversaire = string.Empty;
+
+            mEmail = string.Empty;
         }
 
     }

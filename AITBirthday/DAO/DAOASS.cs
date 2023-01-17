@@ -834,7 +834,15 @@ namespace AITBirthday.DAO
                 {
                     try
                     {
-                        command.CommandText = @"SELECT * from BIR_Employe WHERE IsDelete=0 ";
+                        command.CommandText = @"select Emp.Id,Emp.Nom,Emp.Prenoms,Emp.IdDirection,Emp.IdEntiteAITEK,Emp.IdPoste,Emp.DateNaissance,Emp.IsDelete,
+                                                Emp.UserCreation,Emp.UserLastModification,Emp.DateCreation,Emp.DateLastModification,Emp.Email,E.LibelleEntiteAITEK,
+                                                D.IntituleDirection,P.IntitulePoste
+                                                 from BIR_Employe Emp
+                                                left join BIR_Direction D on Emp.IdDirection=D.Id
+                                                left join BIR_EntiteAITEK E on Emp.IdEntiteAITEK=E.Id
+                                                left join BIR_Poste P on Emp.IdPoste=P.Id
+                                                where Emp.IsDelete=0
+                                                order by Nom,Prenoms ";
 
                         // command.CommandTimeout = 300;
                         using (var reader = command.ExecuteReader())
@@ -848,10 +856,10 @@ namespace AITBirthday.DAO
                                     mPrenoms = reader["Prenoms"] == DBNull.Value ? string.Empty : reader["Prenoms"] as string,
                                     mIdPoste = reader["IdPoste"] == DBNull.Value ? 0 : Convert.ToInt16(reader["IdPoste"]),
 
-                                    mLibellePoste = reader["LibellePoste"] == DBNull.Value ? string.Empty : reader["LibellePoste"] as string,
+                                    mLibellePoste = reader["IntitulePoste"] == DBNull.Value ? string.Empty : reader["IntitulePoste"] as string,
 
                                     mIdDirection = reader["IdDirection"] == DBNull.Value ? 0 : Convert.ToInt16(reader["IdDirection"]),
-                                    mLibelleDirection = reader["LibelleDirection"] == DBNull.Value ? string.Empty : reader["LibelleDirection"] as string,
+                                    mLibelleDirection = reader["IntituleDirection"] == DBNull.Value ? string.Empty : reader["IntituleDirection"] as string,
 
                                     mIdEntiteAITEK = reader["IdEntiteAITEK"] == DBNull.Value ? 0 : Convert.ToInt16(reader["IdEntiteAITEK"]),
                                     mLibelleEntiteAITEK = reader["LibelleEntiteAITEK"] == DBNull.Value ? string.Empty : reader["LibelleEntiteAITEK"] as string,
@@ -865,7 +873,15 @@ namespace AITBirthday.DAO
                                     mDateCreation = reader["DateCreation"] == DBNull.Value ? new DateTime() : DateTime.Parse(reader["DateCreation"].ToString()),
                                     mDateLastModification = reader["DateLastModification"] == DBNull.Value ? new DateTime() : DateTime.Parse(reader["DateLastModification"].ToString()),
 
+                                    mEmail = reader["Email"] == DBNull.Value ? string.Empty : reader["Email"] as string,
+
                                 };
+
+                                var jourdate = pays.mDateNaissance.Day;
+
+                                var moisdate = pays.mDateNaissance.Month;
+
+                                pays.mDateAnniversaire = GetJourDate(jourdate) + " " + GetMoisDate(moisdate);
 
                                 listPays.Add(pays);
                             }
@@ -888,6 +904,89 @@ namespace AITBirthday.DAO
             }
         }
 
+
+        public string GetJourDate(int jour)
+        {
+            string ret = string.Empty;
+            try
+            {
+                if(jour<10)
+                {
+                    ret = "0" + jour.ToString();
+                }
+                else
+                {
+                    ret= jour.ToString();
+                }
+
+
+                return ret;
+            }
+            catch(Exception ex)
+            {
+                return ret;
+            }
+        }
+
+
+        public string GetMoisDate(int mois)
+        {
+            string ret = string.Empty;
+
+            try
+            {
+                switch (mois)
+                {
+                    case 1:
+                        ret = "Janvier";
+                        break;
+                    case 2:
+                        ret = "Février";
+                        break;
+                    case 3:
+                        ret = "Mars";
+                        break;
+                    case 4:
+                        ret = "Avril";
+                        break;
+                    case 5:
+                        ret = "Mai";
+                        break;
+                    case 6:
+                        ret = "Juin";
+                        break;
+                    case 7:
+                        ret = "Juillet";
+                        break;
+
+                    case 8:
+                        ret = "Août";
+                        break;
+                    case 9:
+                        ret = "Septembre";
+                        break;
+                    case 10:
+                        ret = "Octobre";
+                        break;
+                    case 11:
+                        ret = "Novembre";
+                        break;
+                    case 12:
+                        ret = "Décembre";
+                        break;
+                 
+                }
+
+                return ret;
+            }
+            catch(Exception ex)
+            {
+                return ret;
+            }
+        }
+
+
+
         public bool addEmploye(CEmploye client, string ChaineConx)
         {
             bool res = false;
@@ -901,20 +1000,21 @@ namespace AITBirthday.DAO
                     try
                     {
                         command.CommandText = @"INSERT INTO BIR_Employe
-                        (Nom,Prenoms,IdPoste,IdDirection,IdEntiteAITEK,DateNaissance,IsDelete,UserCreation,UserLastModification,DateCreation,DateLastModification)
-                        VALUES (@Nom,@Prenoms,@IdPoste,@IdDirection,@IdEntiteAITEK,@DateNaissance,@IsDelete,@UserCreation,@UserLastModification,@DateCreation,@DateLastModification)";
+                        (Nom,Prenoms,IdPoste,IdDirection,IdEntiteAITEK,DateNaissance,IsDelete,UserCreation,UserLastModification,DateCreation,DateLastModification,Email)
+                        VALUES (@Nom,@Prenoms,@IdPoste,@IdDirection,@IdEntiteAITEK,@DateNaissance,@IsDelete,@UserCreation,@UserLastModification,@DateCreation,@DateLastModification,@Email)";
 
                         command.Parameters.Add(new SqlParameter("Nom", client.mNom ?? ""));
                         command.Parameters.Add(new SqlParameter("Prenoms", client.mPrenoms ?? ""));
                         command.Parameters.Add(new SqlParameter("IdPoste", client.mIdPoste));
                         command.Parameters.Add(new SqlParameter("IdDirection", client.mIdDirection));
                         command.Parameters.Add(new SqlParameter("IdEntiteAITEK", client.mIdEntiteAITEK));
-                        command.Parameters.Add(new SqlParameter("DateNaissance", client.mDateCreation));
+                        command.Parameters.Add(new SqlParameter("DateNaissance", client.mDateNaissance));
                         command.Parameters.Add(new SqlParameter("IsDelete", client.mIsDelete));
                         command.Parameters.Add(new SqlParameter("UserCreation", client.mUserCreation ?? ""));
                         command.Parameters.Add(new SqlParameter("UserLastModification", client.mUserLastModification ?? ""));
                         command.Parameters.Add(new SqlParameter("DateCreation", client.mDateCreation));
                         command.Parameters.Add(new SqlParameter("DateLastModification", client.mDateLastModification));
+                        command.Parameters.Add(new SqlParameter("Email", client.mEmail ?? ""));
 
                         command.ExecuteNonQuery();
                         res = true;
@@ -949,7 +1049,7 @@ namespace AITBirthday.DAO
                     try
                     {
                         command.CommandText = @"UPDATE BIR_Employe SET 
-                        Nom=@Nom,Prenoms=@Prenoms,IdPoste=@IdPoste,IdDirection=@IdDirection,IdEntiteAITEK=@IdEntiteAITEK,DateNaissance=@DateNaissance,IsDelete=@IsDelete,UserCreation=@UserCreation,UserLastModification=@UserLastModification,DateCreation=@DateCreation,DateLastModification=@DateLastModification WHERE Id = @Id";
+                        Nom=@Nom,Prenoms=@Prenoms,IdPoste=@IdPoste,IdDirection=@IdDirection,IdEntiteAITEK=@IdEntiteAITEK,DateNaissance=@DateNaissance,IsDelete=@IsDelete,UserCreation=@UserCreation,UserLastModification=@UserLastModification,DateCreation=@DateCreation,DateLastModification=@DateLastModification,Email=@Email WHERE Id = @Id";
 
                         command.Parameters.Add(new SqlParameter("Id", client.mId));
                         command.Parameters.Add(new SqlParameter("Nom", client.mNom ?? ""));
@@ -963,6 +1063,7 @@ namespace AITBirthday.DAO
                         command.Parameters.Add(new SqlParameter("UserLastModification", client.mUserLastModification ?? ""));
                         //  command.Parameters.Add(new SqlParameter("DateCreation", client.mDateCreation));
                         command.Parameters.Add(new SqlParameter("DateLastModification", client.mDateLastModification));
+                        command.Parameters.Add(new SqlParameter("Email", client.mEmail ?? ""));
 
                         command.ExecuteNonQuery();
                         res = true;
@@ -1061,6 +1162,7 @@ namespace AITBirthday.DAO
                                 listPays.mIsDelete = reader["IsDelete"] == DBNull.Value ? 0 : Convert.ToInt16(reader["IsDelete"]);
                                 listPays.mUserCreation = reader["UserCreation"] == DBNull.Value ? string.Empty : reader["UserCreation"] as string;
                                 listPays.mUserLastModification = reader["UserLastModification"] == DBNull.Value ? string.Empty : reader["UserLastModification"] as string;
+                                listPays.mEmail = reader["Email"] == DBNull.Value ? string.Empty : reader["Email"] as string;
 
                                 listPays.mDateCreation = reader["DateCreation"] == DBNull.Value ? new DateTime() : DateTime.Parse(reader["DateCreation"].ToString());
                                 listPays.mDateLastModification = reader["DateLastModification"] == DBNull.Value ? new DateTime() : DateTime.Parse(reader["DateLastModification"].ToString());

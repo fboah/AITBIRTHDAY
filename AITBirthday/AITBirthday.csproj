@@ -91,6 +91,18 @@
     <Compile Include="UI\EntiteAITEK\FenEntiteAITEK.Designer.cs">
       <DependentUpon>FenEntiteAITEK.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GestionAnniversaire\AjoutAnniversaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GestionAnniversaire\AjoutAnniversaire.Designer.cs">
+      <DependentUpon>AjoutAnniversaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GestionAnniversaire\FenGestAnniv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GestionAnniversaire\FenGestAnniv.Designer.cs">
+      <DependentUpon>FenGestAnniv.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Poste\AjoutPoste.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +141,12 @@
     <EmbeddedResource Include="UI\EntiteAITEK\FenEntiteAITEK.resx">
       <DependentUpon>FenEntiteAITEK.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\GestionAnniversaire\AjoutAnniversaire.resx">
+      <DependentUpon>AjoutAnniversaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GestionAnniversaire\FenGestAnniv.resx">
+      <DependentUpon>FenGestAnniv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Poste\AjoutPoste.resx">
       <DependentUpon>AjoutPoste.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +166,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

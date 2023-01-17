@@ -87,11 +87,13 @@ namespace AITBirthday.UI.EntiteAITEK
             }
             catch (Exception ex)
             {
-                var msg = "AjoutPoste -> AjoutDemandeur_Load-> TypeErreur: " + ex.Message;
+                var msg = "AjoutEntiteAITEK -> AjoutEntiteAITEK_Load-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
         }
 
+
+      
         private void sBtnEnregistrer_Click(object sender, EventArgs e)
         {
             //Enregistrer
@@ -190,7 +192,7 @@ namespace AITBirthday.UI.EntiteAITEK
             }
             catch (Exception ex)
             {
-                var msg = "AjoutPoste -> sBtnEnregistrer_Click-> TypeErreur: " + ex.Message;
+                var msg = "AjoutEntiteAITEK -> sBtnEnregistrer_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
         }

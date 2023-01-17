@@ -31,6 +31,7 @@ namespace AITBirthday.UI.Poste
             this.myChaine = CH;
         }
 
+      
         private void sBtnAjouter_Click(object sender, EventArgs e)
         {
             try
@@ -50,6 +51,8 @@ namespace AITBirthday.UI.Poste
             }
         }
 
+
+      
         private void FenPoste_Load(object sender, EventArgs e)
         {
             try
@@ -58,11 +61,12 @@ namespace AITBirthday.UI.Poste
             }
             catch(Exception ex)
             {
-
+                var msg = "FenPoste -> FenPoste_Load-> TypeErreur: " + ex.Message;
+                CLog.Log(msg);
             }
         }
 
-
+       
         public void ReloadGrid()
         {
             try
@@ -73,12 +77,14 @@ namespace AITBirthday.UI.Poste
             }
             catch (Exception ex)
             {
-                var msg = "FenDemandeur -> ReloadGrid-> TypeErreur: " + ex.Message;
+                var msg = "FenPoste -> ReloadGrid-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
 
         }
 
+
+     
         private void sBtnSupprimer_Click(object sender, EventArgs e)
         {
             bool ret = false;
@@ -135,11 +141,13 @@ namespace AITBirthday.UI.Poste
             }
             catch (Exception ex)
             {
-                var msg = "FenDemandeur -> sBtnSupprimer_Click-> TypeErreur: " + ex.Message;
+                var msg = "FenPoste -> sBtnSupprimer_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
         }
 
+
+ 
         private void sBtnModifier_Click(object sender, EventArgs e)
         {
             try
@@ -176,7 +184,7 @@ namespace AITBirthday.UI.Poste
             }
             catch (Exception ex)
             {
-                var msg = "FenDemandeur -> sBtnModifier_Click-> TypeErreur: " + ex.Message;
+                var msg = "FenPoste -> sBtnModifier_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
        

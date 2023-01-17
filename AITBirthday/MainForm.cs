@@ -2,6 +2,7 @@
 using AITBirthday.Models;
 using AITBirthday.UI.Direction;
 using AITBirthday.UI.EntiteAITEK;
+using AITBirthday.UI.GestionAnniversaire;
 using AITBirthday.UI.Poste;
 using AITBirthday.Utils;
 using System;
@@ -25,6 +26,12 @@ namespace AITBirthday
 
         public List<CPays> ListePays = new List<CPays>();
 
+        public List<CPoste> ListePoste = new List<CPoste>();
+
+        public List<CEntiteAITEK> ListeEntiteAITEK = new List<CEntiteAITEK>();
+
+        public List<CDirection> ListeDirection = new List<CDirection>();
+
         public MainForm()
         {
             InitializeComponent();
@@ -37,10 +44,17 @@ namespace AITBirthday
                 IsMdiContainer = true;
 
                 ListePays = mDao.getAllPays(Chaine);
+
+                ListePoste = mDao.getAllPoste(Chaine);
+
+                ListeEntiteAITEK = mDao.getAllEntiteAITEK(Chaine, ListePays);
+
+                ListeDirection = mDao.getAllDirection(Chaine);
             }
             catch(Exception ex)
             {
-
+                var msg = "MainForm -> MainForm_Load-> TypeErreur: " + ex.Message;
+                CLog.Log(msg);
             }
         }
 
@@ -94,6 +108,24 @@ namespace AITBirthday
             catch (Exception ex)
             {
                 var msg = "MainForm -> entitéAITEKToolStripMenuItem_Clicks-> TypeErreur: " + ex.Message;
+                CLog.Log(msg);
+            }
+        }
+
+        private void gestionAnniversairesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var FenCad = new FenGestAnniv (Chaine, ListePoste, ListeEntiteAITEK, ListeDirection);
+                
+                FenCad.MdiParent = this;
+
+                FenCad.Show();
+
+            }
+            catch (Exception ex)
+            {
+                var msg = "MainForm -> gestionAnniversairesToolStripMenuItem_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
         }

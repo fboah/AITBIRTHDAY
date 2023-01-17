@@ -33,13 +33,15 @@
             this.posteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entitéAITEKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionAnniversairesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.créationToolStripMenuItem});
+            this.créationToolStripMenuItem,
+            this.gestionAnniversairesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(641, 24);
@@ -77,6 +79,13 @@
             this.entitéAITEKToolStripMenuItem.Text = "Entité AITEK";
             this.entitéAITEKToolStripMenuItem.Click += new System.EventHandler(this.entitéAITEKToolStripMenuItem_Click);
             // 
+            // gestionAnniversairesToolStripMenuItem
+            // 
+            this.gestionAnniversairesToolStripMenuItem.Name = "gestionAnniversairesToolStripMenuItem";
+            this.gestionAnniversairesToolStripMenuItem.Size = new System.Drawing.Size(132, 20);
+            this.gestionAnniversairesToolStripMenuItem.Text = "Gestion Anniversaires";
+            this.gestionAnniversairesToolStripMenuItem.Click += new System.EventHandler(this.gestionAnniversairesToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +113,7 @@
         private System.Windows.Forms.ToolStripMenuItem posteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem directionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entitéAITEKToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionAnniversairesToolStripMenuItem;
     }
 }
 

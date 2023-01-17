@@ -34,6 +34,8 @@ namespace AITBirthday.UI.EntiteAITEK
             this.myListePays = LP;
         }
 
+
+      
         public void ReloadGrid()
         {
             try
@@ -44,12 +46,13 @@ namespace AITBirthday.UI.EntiteAITEK
             }
             catch (Exception ex)
             {
-                var msg = "FenDirection -> ReloadGrid-> TypeErreur: " + ex.Message;
+                var msg = "FenEntiteAITEK -> ReloadGrid-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
 
         }
 
+       
         private void FenEntiteAITEK_Load(object sender, EventArgs e)
         {
             try
@@ -58,10 +61,13 @@ namespace AITBirthday.UI.EntiteAITEK
             }
             catch (Exception ex)
             {
-
+                var msg = "FenEntiteAITEK -> FenEntiteAITEK_Load-> TypeErreur: " + ex.Message;
+                CLog.Log(msg);
             }
         }
 
+
+      
         private void sBtnAjouter_Click(object sender, EventArgs e)
         {
             try
@@ -76,11 +82,14 @@ namespace AITBirthday.UI.EntiteAITEK
             }
             catch (Exception ex)
             {
-                var msg = "FenDirection -> sBtnAjouter_Click-> TypeErreur: " + ex.Message;
+                var msg = "FenEntiteAITEK -> sBtnAjouter_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
         }
 
+
+
+      
         private void sBtnModifier_Click(object sender, EventArgs e)
         {
             try
@@ -118,11 +127,13 @@ namespace AITBirthday.UI.EntiteAITEK
             }
             catch (Exception ex)
             {
-                var msg = "FenDemandeur -> sBtnModifier_Click-> TypeErreur: " + ex.Message;
+                var msg = "FenEntiteAITEK -> sBtnModifier_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
 
         }
+
+       
 
         private void sBtnSupprimer_Click(object sender, EventArgs e)
         {
@@ -181,7 +192,7 @@ namespace AITBirthday.UI.EntiteAITEK
             }
             catch (Exception ex)
             {
-                var msg = "FenDemandeur -> sBtnSupprimer_Click-> TypeErreur: " + ex.Message;
+                var msg = "FenEntiteAITEK -> sBtnSupprimer_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
         }

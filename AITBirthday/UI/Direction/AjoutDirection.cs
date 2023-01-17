@@ -35,6 +35,8 @@ namespace AITBirthday.UI.Direction
             this.myObjectPoste = ObjectPoste;
         }
 
+
+      
         private void AjoutDirection_Load(object sender, EventArgs e)
         {
             try
@@ -52,11 +54,13 @@ namespace AITBirthday.UI.Direction
             }
             catch (Exception ex)
             {
-                var msg = "AjoutPoste -> AjoutDemandeur_Load-> TypeErreur: " + ex.Message;
+                var msg = "AjoutDirection -> AjoutDirection_Load-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
         }
 
+
+      
         private void sBtnEnregistrer_Click(object sender, EventArgs e)
         {
             //Enregistrer
@@ -157,7 +161,7 @@ namespace AITBirthday.UI.Direction
             }
             catch (Exception ex)
             {
-                var msg = "AjoutPoste -> sBtnEnregistrer_Click-> TypeErreur: " + ex.Message;
+                var msg = "AjoutDirection -> sBtnEnregistrer_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
             }
         }
