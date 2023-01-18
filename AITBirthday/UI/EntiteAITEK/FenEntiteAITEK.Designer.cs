@@ -28,17 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenEntiteAITEK));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.sBtnAjouter = new DevExpress.XtraEditors.SimpleButton();
             this.sBtnModifier = new DevExpress.XtraEditors.SimpleButton();
             this.sBtnSupprimer = new DevExpress.XtraEditors.SimpleButton();
             this.gCEntiteAITEK = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.colmId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmLibelleEntiteAITEK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmIdPays = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,6 +44,11 @@
             this.colmUserLastModification = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmDateCreation = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmDateLastModification = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCEntiteAITEK)).BeginInit();
@@ -74,6 +75,7 @@
             // 
             // sBtnAjouter
             // 
+            this.sBtnAjouter.Image = ((System.Drawing.Image)(resources.GetObject("sBtnAjouter.Image")));
             this.sBtnAjouter.Location = new System.Drawing.Point(12, 337);
             this.sBtnAjouter.Name = "sBtnAjouter";
             this.sBtnAjouter.Size = new System.Drawing.Size(190, 22);
@@ -84,6 +86,7 @@
             // 
             // sBtnModifier
             // 
+            this.sBtnModifier.Image = ((System.Drawing.Image)(resources.GetObject("sBtnModifier.Image")));
             this.sBtnModifier.Location = new System.Drawing.Point(206, 337);
             this.sBtnModifier.Name = "sBtnModifier";
             this.sBtnModifier.Size = new System.Drawing.Size(198, 22);
@@ -94,6 +97,7 @@
             // 
             // sBtnSupprimer
             // 
+            this.sBtnSupprimer.Image = ((System.Drawing.Image)(resources.GetObject("sBtnSupprimer.Image")));
             this.sBtnSupprimer.Location = new System.Drawing.Point(408, 337);
             this.sBtnSupprimer.Name = "sBtnSupprimer";
             this.sBtnSupprimer.Size = new System.Drawing.Size(184, 22);
@@ -128,56 +132,6 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(604, 371);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gCEntiteAITEK;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(584, 325);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.sBtnSupprimer;
-            this.layoutControlItem2.Location = new System.Drawing.Point(396, 325);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(188, 26);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.sBtnModifier;
-            this.layoutControlItem3.Location = new System.Drawing.Point(194, 325);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(202, 26);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.sBtnAjouter;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 325);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(194, 26);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
             // 
             // colmId
             // 
@@ -237,6 +191,56 @@
             this.colmDateLastModification.FieldName = "mDateLastModification";
             this.colmDateLastModification.Name = "colmDateLastModification";
             // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(604, 371);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gCEntiteAITEK;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(584, 325);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.sBtnSupprimer;
+            this.layoutControlItem2.Location = new System.Drawing.Point(396, 325);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(188, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.sBtnModifier;
+            this.layoutControlItem3.Location = new System.Drawing.Point(194, 325);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(202, 26);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.sBtnAjouter;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 325);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(194, 26);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
             // FenEntiteAITEK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,9 +248,10 @@
             this.ClientSize = new System.Drawing.Size(586, 353);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FenEntiteAITEK";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FenEntiteAITEK";
+            this.Text = "Lister les Entités AITEK";
             this.Load += new System.EventHandler(this.FenEntiteAITEK_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

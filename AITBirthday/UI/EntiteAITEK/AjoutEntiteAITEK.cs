@@ -114,7 +114,7 @@ namespace AITBirthday.UI.EntiteAITEK
                 var ListDem = mDao.getAllEntiteAITEK(myChaine,myListePays);
 
                 var IsExist = ListDem.Exists(x => x.mLibelleEntiteAITEK.ToUpper().Trim() == txtLibelleEntiteAITEK.Text.ToUpper().Trim() && x.mIsDelete == 0);
-                var IsExistModif = ListDem.Exists(x => x.mLibelleEntiteAITEK.ToUpper().Trim() == txtLibelleEntiteAITEK.Text.ToUpper().Trim() && x.mIdPays ==Int32.Parse( CmbPays.EditValue.ToString())  && x.mIsDelete == 0);
+              //  var IsExistModif = ListDem.Exists(x => x.mLibelleEntiteAITEK.ToUpper().Trim() == txtLibelleEntiteAITEK.Text.ToUpper().Trim() && x.mIdPays ==Int32.Parse( CmbPays.EditValue.ToString())  && x.mIsDelete == 0);
 
 
                 if (myIsAjout && IsExist)
@@ -124,12 +124,12 @@ namespace AITBirthday.UI.EntiteAITEK
                     return;
                 }
 
-                if (IsExistModif)
-                {
-                    MessageBox.Show("Une Entité AITEK avec un libelle et un pays similaires existe déjà!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //if (IsExistModif)
+                //{
+                //    MessageBox.Show("Une Entité AITEK avec un libelle et un pays similaires existe déjà!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    return;
-                }
+                //    return;
+                //}
 
                 #region Ajout Entité AITEK
 

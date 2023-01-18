@@ -1,8 +1,10 @@
 ﻿using AITBirthday.DAO;
 using AITBirthday.Models;
+using AITBirthday.Services;
 using AITBirthday.UI.Direction;
 using AITBirthday.UI.EntiteAITEK;
 using AITBirthday.UI.GestionAnniversaire;
+using AITBirthday.UI.ParamEmail;
 using AITBirthday.UI.Poste;
 using AITBirthday.Utils;
 using System;
@@ -24,7 +26,11 @@ namespace AITBirthday
 
         private readonly DAOASS mDao = new DAOASS();
 
+        private readonly ServiceAITBIR mServ = new ServiceAITBIR();
+
         public List<CPays> ListePays = new List<CPays>();
+
+        public List<CParams> ListeParams = new List<CParams>();
 
         public List<CPoste> ListePoste = new List<CPoste>();
 
@@ -41,7 +47,36 @@ namespace AITBirthday
         {
             try
             {
+               // //  #region Paramètres Email Envoi
+
+               //   var MyCParams = new CParams();
+
+               // //  // MyCParams.mEmail = " renouvellementSoft@aitek.fr";
+               // // // MyCParams.mEmail = "recrutement@aitek.fr";
+               // MyCParams.mEmail = "aurelia.loucou@aitek.fr";
+
+               // //  MyCParams.mSmtp = "outlook.office365.com";
+               // MyCParams.mSmtp = "smtp-legacy.office365.com";
+               // //MyCParams.mSmtpPassword = "2017Aitek";
+               //   MyCParams.mSmtpPassword = "2023Aitek";
+               //// MyCParams.mSmtpPassword = "2022Aitek!!";
+
+               // MyCParams.mPort = 587;
+
+               // //  #endregion
+
+               // CEmploye CE = new CEmploye();
+
+               // CE.mEmail = "franck.boah@aitek.fr";
+               // CE.mNom = "BOAH";
+               // CE.mPrenoms = "Franck";
+
+               // mServ.sendMailAnniv(MyCParams, CE);
+
+
                 IsMdiContainer = true;
+
+                ListeParams = mDao.getAllParams(Chaine);
 
                 ListePays = mDao.getAllPays(Chaine);
 
@@ -127,6 +162,37 @@ namespace AITBirthday
             {
                 var msg = "MainForm -> gestionAnniversairesToolStripMenuItem_Click-> TypeErreur: " + ex.Message;
                 CLog.Log(msg);
+            }
+        }
+
+        private void paramètresEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool IsAjout = false;
+
+                ListeParams = mDao.getAllParams(Chaine);
+
+                if (ListeParams.Count>0)
+                {
+                    IsAjout = false;
+                }
+                else
+                {
+                    IsAjout = true;
+                }
+
+               // ListeParams
+
+               var FenCad = new FenParam (Chaine, ListeParams, IsAjout);
+
+                FenCad.MdiParent = this;
+
+                FenCad.Show();
+            }
+            catch(Exception ex)
+            {
+
             }
         }
     }

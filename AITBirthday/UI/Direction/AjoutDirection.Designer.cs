@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjoutDirection));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.sBtnEnregistrer = new DevExpress.XtraEditors.SimpleButton();
             this.sBtnFermer = new DevExpress.XtraEditors.SimpleButton();
@@ -68,6 +69,7 @@
             // 
             // sBtnEnregistrer
             // 
+            this.sBtnEnregistrer.Image = ((System.Drawing.Image)(resources.GetObject("sBtnEnregistrer.Image")));
             this.sBtnEnregistrer.Location = new System.Drawing.Point(12, 256);
             this.sBtnEnregistrer.Name = "sBtnEnregistrer";
             this.sBtnEnregistrer.Size = new System.Drawing.Size(227, 22);
@@ -78,6 +80,7 @@
             // 
             // sBtnFermer
             // 
+            this.sBtnFermer.Image = ((System.Drawing.Image)(resources.GetObject("sBtnFermer.Image")));
             this.sBtnFermer.Location = new System.Drawing.Point(243, 256);
             this.sBtnFermer.Name = "sBtnFermer";
             this.sBtnFermer.Size = new System.Drawing.Size(228, 22);
@@ -179,6 +182,7 @@
             this.ClientSize = new System.Drawing.Size(466, 272);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AjoutDirection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ajouter une Direction";

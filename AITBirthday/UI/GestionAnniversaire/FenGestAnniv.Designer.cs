@@ -28,17 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenGestAnniv));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.sBtnAjouter = new DevExpress.XtraEditors.SimpleButton();
             this.sBtnModifier = new DevExpress.XtraEditors.SimpleButton();
             this.sBtnSupprimer = new DevExpress.XtraEditors.SimpleButton();
             this.gCAnniversaire = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.colmId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmNom = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmPrenoms = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -57,6 +53,11 @@
             this.colmDateCreation = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmDateLastModification = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmEmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCAnniversaire)).BeginInit();
@@ -70,6 +71,9 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.layoutControl1.Controls.Add(this.sBtnAjouter);
             this.layoutControl1.Controls.Add(this.sBtnModifier);
             this.layoutControl1.Controls.Add(this.sBtnSupprimer);
@@ -77,15 +81,16 @@
             this.layoutControl1.Location = new System.Drawing.Point(-9, -9);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(932, 442);
+            this.layoutControl1.Size = new System.Drawing.Size(1053, 490);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // sBtnAjouter
             // 
-            this.sBtnAjouter.Location = new System.Drawing.Point(12, 408);
+            this.sBtnAjouter.Image = ((System.Drawing.Image)(resources.GetObject("sBtnAjouter.Image")));
+            this.sBtnAjouter.Location = new System.Drawing.Point(12, 456);
             this.sBtnAjouter.Name = "sBtnAjouter";
-            this.sBtnAjouter.Size = new System.Drawing.Size(287, 22);
+            this.sBtnAjouter.Size = new System.Drawing.Size(326, 22);
             this.sBtnAjouter.StyleController = this.layoutControl1;
             this.sBtnAjouter.TabIndex = 7;
             this.sBtnAjouter.Text = "Ajouter";
@@ -93,28 +98,35 @@
             // 
             // sBtnModifier
             // 
-            this.sBtnModifier.Location = new System.Drawing.Point(303, 408);
+            this.sBtnModifier.Image = ((System.Drawing.Image)(resources.GetObject("sBtnModifier.Image")));
+            this.sBtnModifier.Location = new System.Drawing.Point(342, 456);
             this.sBtnModifier.Name = "sBtnModifier";
-            this.sBtnModifier.Size = new System.Drawing.Size(321, 22);
+            this.sBtnModifier.Size = new System.Drawing.Size(364, 22);
             this.sBtnModifier.StyleController = this.layoutControl1;
             this.sBtnModifier.TabIndex = 6;
             this.sBtnModifier.Text = "Modifier";
+            this.sBtnModifier.Click += new System.EventHandler(this.sBtnModifier_Click);
             // 
             // sBtnSupprimer
             // 
-            this.sBtnSupprimer.Location = new System.Drawing.Point(628, 408);
+            this.sBtnSupprimer.Image = ((System.Drawing.Image)(resources.GetObject("sBtnSupprimer.Image")));
+            this.sBtnSupprimer.Location = new System.Drawing.Point(710, 456);
             this.sBtnSupprimer.Name = "sBtnSupprimer";
-            this.sBtnSupprimer.Size = new System.Drawing.Size(292, 22);
+            this.sBtnSupprimer.Size = new System.Drawing.Size(331, 22);
             this.sBtnSupprimer.StyleController = this.layoutControl1;
             this.sBtnSupprimer.TabIndex = 5;
             this.sBtnSupprimer.Text = "Supprimer";
+            this.sBtnSupprimer.Click += new System.EventHandler(this.sBtnSupprimer_Click);
             // 
             // gCAnniversaire
             // 
+            this.gCAnniversaire.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gCAnniversaire.Location = new System.Drawing.Point(12, 12);
             this.gCAnniversaire.MainView = this.gridView1;
             this.gCAnniversaire.Name = "gCAnniversaire";
-            this.gCAnniversaire.Size = new System.Drawing.Size(908, 392);
+            this.gCAnniversaire.Size = new System.Drawing.Size(1029, 440);
             this.gCAnniversaire.TabIndex = 4;
             this.gCAnniversaire.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -145,56 +157,6 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsFind.AlwaysVisible = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(932, 442);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gCAnniversaire;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(912, 396);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.sBtnSupprimer;
-            this.layoutControlItem2.Location = new System.Drawing.Point(616, 396);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(296, 26);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.sBtnModifier;
-            this.layoutControlItem3.Location = new System.Drawing.Point(291, 396);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(325, 26);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.sBtnAjouter;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 396);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(291, 26);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
             // 
             // colmId
             // 
@@ -318,16 +280,66 @@
             this.colmEmail.Visible = true;
             this.colmEmail.VisibleIndex = 6;
             // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1053, 490);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gCAnniversaire;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(1033, 444);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.sBtnSupprimer;
+            this.layoutControlItem2.Location = new System.Drawing.Point(698, 444);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(335, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.sBtnModifier;
+            this.layoutControlItem3.Location = new System.Drawing.Point(330, 444);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(368, 26);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.sBtnAjouter;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 444);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(330, 26);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
             // FenGestAnniv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 424);
+            this.ClientSize = new System.Drawing.Size(1035, 472);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FenGestAnniv";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FenGestAnniv";
+            this.Text = "Lister les Anniversaires";
             this.Load += new System.EventHandler(this.FenGestAnniv_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

@@ -88,7 +88,7 @@ namespace AITBirthday.UI.Poste
                 var ListDem = mDao.getAllPoste(myChaine);
 
                 var IsExist = ListDem.Exists(x => x.mCodePoste.ToUpper().Trim() == txtCodePoste.Text.ToUpper().Trim() && x.mIsDelete == 0);
-                var IsExistModif = ListDem.Exists(x => x.mCodePoste.ToUpper().Trim() == txtCodePoste.Text.ToUpper().Trim() && x.mIntitulePoste.ToUpper().Trim() == txtIntitulePoste.Text.ToUpper().Trim() && x.mDescription.ToUpper().Trim() == rTBDescription.Text.ToUpper().Trim() && x.mIsDelete == 0);
+               // var IsExistModif = ListDem.Exists(x => x.mCodePoste.ToUpper().Trim() == txtCodePoste.Text.ToUpper().Trim() && x.mIntitulePoste.ToUpper().Trim() == txtIntitulePoste.Text.ToUpper().Trim() && x.mDescription.ToUpper().Trim() == rTBDescription.Text.ToUpper().Trim() && x.mIsDelete == 0);
 
 
                 if (myIsAjout && IsExist)
@@ -98,12 +98,12 @@ namespace AITBirthday.UI.Poste
                     return;
                 }
 
-                if (IsExistModif)
-                {
-                    MessageBox.Show("Un Poste avec un code similaire existe déjà!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //if (IsExistModif)
+                //{
+                //    MessageBox.Show("Un Poste avec un code similaire existe déjà!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    return;
-                }
+                //    return;
+                //}
 
                 #region Ajout Poste
 

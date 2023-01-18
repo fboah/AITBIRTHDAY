@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjoutPoste));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.sBtnEnregistrer = new DevExpress.XtraEditors.SimpleButton();
             this.sBtnFermer = new DevExpress.XtraEditors.SimpleButton();
@@ -68,6 +69,7 @@
             // 
             // sBtnEnregistrer
             // 
+            this.sBtnEnregistrer.Image = ((System.Drawing.Image)(resources.GetObject("sBtnEnregistrer.Image")));
             this.sBtnEnregistrer.Location = new System.Drawing.Point(12, 257);
             this.sBtnEnregistrer.Name = "sBtnEnregistrer";
             this.sBtnEnregistrer.Size = new System.Drawing.Size(229, 22);
@@ -78,6 +80,7 @@
             // 
             // sBtnFermer
             // 
+            this.sBtnFermer.Image = ((System.Drawing.Image)(resources.GetObject("sBtnFermer.Image")));
             this.sBtnFermer.Location = new System.Drawing.Point(245, 257);
             this.sBtnFermer.Name = "sBtnFermer";
             this.sBtnFermer.Size = new System.Drawing.Size(229, 22);

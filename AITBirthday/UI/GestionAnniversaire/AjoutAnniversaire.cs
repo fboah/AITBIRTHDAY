@@ -39,6 +39,7 @@ namespace AITBirthday.UI.GestionAnniversaire
             this.myListeEntiteAITEK = LEA;
             this.myListePoste = LP;
             this.myIsAjout = IsAj;
+            this.myObjectPoste = Cemp;
         }
 
 
@@ -142,6 +143,7 @@ namespace AITBirthday.UI.GestionAnniversaire
                     CmbPoste.EditValue = myObjectPoste.mIdPoste;
                     CmbDirection.EditValue = myObjectPoste.mIdDirection;
                     CmbEntiteAITEK.EditValue = myObjectPoste.mIdEntiteAITEK;
+                    dateNaissance.EditValue = myObjectPoste.mDateNaissance;
 
                     #endregion
                 }
@@ -173,7 +175,7 @@ namespace AITBirthday.UI.GestionAnniversaire
                 var ListDem = mDao.getAllEmploye(myChaine);
 
                 var IsExist = ListDem.Exists(x => x.mEmail.ToUpper().Trim() == txtEmail.Text.ToUpper().Trim() && x.mIsDelete == 0);
-                var IsExistModif = ListDem.Exists(x => x.mNom.ToUpper().Trim() == txtNom.Text.ToUpper().Trim() && x.mPrenoms.ToUpper().Trim() == txtPrenom.Text.ToUpper().Trim() && x.mEmail.ToUpper().Trim() == txtEmail.Text.ToUpper().Trim() && x.mIsDelete == 0);
+                //var IsExistModif = ListDem.Exists(x => x.mNom.ToUpper().Trim() == txtNom.Text.ToUpper().Trim() && x.mPrenoms.ToUpper().Trim() == txtPrenom.Text.ToUpper().Trim() && x.mEmail.ToUpper().Trim() == txtEmail.Text.ToUpper().Trim() && x.mIsDelete == 0);
 
 
                 if (myIsAjout && IsExist)
@@ -183,12 +185,12 @@ namespace AITBirthday.UI.GestionAnniversaire
                     return;
                 }
 
-                if (IsExistModif)
-                {
-                    MessageBox.Show("Un Employé avec un Email similaire existe déjà!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //if (IsExistModif)
+                //{
+                //    MessageBox.Show("Un Employé avec un Email similaire existe déjà!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    return;
-                }
+                //    return;
+                //}
 
                 #region Ajout Employe
 

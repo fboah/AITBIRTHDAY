@@ -81,7 +81,7 @@ namespace AITBirthday.UI.Direction
                 var ListDem = mDao.getAllDirection(myChaine);
 
                 var IsExist = ListDem.Exists(x => x.mCodeDirection.ToUpper().Trim() == txtCodeDirection.Text.ToUpper().Trim() && x.mIsDelete == 0);
-                var IsExistModif = ListDem.Exists(x => x.mCodeDirection.ToUpper().Trim() == txtCodeDirection.Text.ToUpper().Trim() && x.mIntituleDirection.ToUpper().Trim() == txtIntituleDirection.Text.ToUpper().Trim() && x.mDescription.ToUpper().Trim() == rTBDescription.Text.ToUpper().Trim() && x.mIsDelete == 0);
+               // var IsExistModif = ListDem.Exists(x => x.mCodeDirection.ToUpper().Trim() == txtCodeDirection.Text.ToUpper().Trim() && x.mIntituleDirection.ToUpper().Trim() == txtIntituleDirection.Text.ToUpper().Trim() && x.mDescription.ToUpper().Trim() == rTBDescription.Text.ToUpper().Trim() && x.mIsDelete == 0);
 
 
                 if (myIsAjout && IsExist)
@@ -91,12 +91,12 @@ namespace AITBirthday.UI.Direction
                     return;
                 }
 
-                if (IsExistModif)
-                {
-                    MessageBox.Show("Une Direction avec un code similaire existe déjà!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //if (IsExistModif)
+                //{
+                //    MessageBox.Show("Une Direction avec un code similaire existe déjà!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    return;
-                }
+                //    return;
+                //}
 
                 #region Ajout Direction
 

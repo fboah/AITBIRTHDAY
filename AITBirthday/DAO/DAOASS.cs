@@ -18,10 +18,148 @@ namespace AITBirthday.DAO
         private readonly DbProviderFactory mProvider = DbProviderFactories.GetFactory("System.Data.SqlClient");
 
         private string Appli = "AITBIRTHDAY";
+        
 
-        //Random entre plusieurs nombre
-       // int randomNumber1 = random.Next(0, 300);
-       //On a 24 combinaisons avec les 4 images
+        #region Poste
+
+        public List<CParams> getAllParams(string Chaineconnex)
+        {
+            var listPays = new List<CParams>();
+            using (mConnection = mProvider.CreateConnection())
+            {
+                if (mConnection == null) return listPays;
+                mConnection.ConnectionString = Chaineconnex;
+                mConnection.Open();
+
+                using (var command = mConnection.CreateCommand())
+                {
+                    try
+                    {
+                        command.CommandText = @"SELECT * from BIR_Params ";
+
+                        // command.CommandTimeout = 300;
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var pays = new CParams
+                                {
+                                    mId = reader["Id"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Id"]),
+                                    mEmail = reader["Email"] == DBNull.Value ? string.Empty : reader["Email"] as string,
+                                    mSmtp = reader["Smtp"] == DBNull.Value ? string.Empty : reader["Smtp"] as string,
+                                    mSmtpPassword = reader["SmtpPassword"] == DBNull.Value ? string.Empty : reader["SmtpPassword"] as string,
+
+                                    mPort = reader["Port"] == DBNull.Value ? 0 : Convert.ToInt16(reader["Port"]),
+                                  
+                                };
+
+                                listPays.Add(pays);
+                            }
+                            return listPays;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Une erreur est survenue! Veuillez contacter votre Administrateur!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        var msg = "DAOASS -> getAllParams-> TypeErreur: " + ex.Message;
+                        CLog.Log(msg);
+
+                        return listPays;
+                    }
+                    finally
+                    {
+                        mConnection.Close();
+                    }
+                }
+            }
+        }
+
+        public bool addParams(CParams client, string ChaineConx)
+        {
+            bool res = false;
+
+            using (mConnection = mProvider.CreateConnection())
+            {
+                mConnection.ConnectionString = ChaineConx;
+                mConnection.Open();
+                using (var command = mConnection.CreateCommand())
+                {
+                    try
+                    {
+
+                        command.CommandText = @"INSERT INTO BIR_Params
+                        (Email,Smtp,SmtpPassword,Port)
+                        VALUES (@Email,@Smtp,@SmtpPassword,@Port)";
+
+                        command.Parameters.Add(new SqlParameter("Email", client.mEmail ?? ""));
+                        command.Parameters.Add(new SqlParameter("Smtp", client.mSmtp ?? ""));
+                        command.Parameters.Add(new SqlParameter("SmtpPassword", client.mSmtpPassword ?? ""));
+                        command.Parameters.Add(new SqlParameter("Port", client.mPort));
+                       
+                        command.ExecuteNonQuery();
+                        res = true;
+
+                        return res;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Une erreur est survenue! Veuillez contacter votre Administrateur!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        var msg = "DAOASS -> addParams-> TypeErreur: " + ex.Message;
+                        CLog.Log(msg);
+                        return res;
+                    }
+                    finally
+                    {
+                        mConnection.Close();
+                    }
+                }
+            }
+        }
+
+        public bool updateParams(CParams client, string chaineconx)
+        {
+            bool res = false;
+
+            using (mConnection = mProvider.CreateConnection())
+            {
+                mConnection.ConnectionString = chaineconx;
+                mConnection.Open();
+                using (var command = mConnection.CreateCommand())
+                {
+                    try
+                    {
+                        command.CommandText = @"UPDATE BIR_Params SET 
+                        Email=@Email,Smtp=@Smtp,SmtpPassword=@SmtpPassword,Port=@Port WHERE Id = @Id";
+
+                        command.Parameters.Add(new SqlParameter("Id", client.mId));
+                        command.Parameters.Add(new SqlParameter("Email", client.mEmail ?? ""));
+                        command.Parameters.Add(new SqlParameter("Smtp", client.mSmtp ?? ""));
+                        command.Parameters.Add(new SqlParameter("SmtpPassword", client.mSmtpPassword ?? ""));
+                        command.Parameters.Add(new SqlParameter("Port", client.mPort));
+
+                        command.ExecuteNonQuery();
+                        res = true;
+
+                        return res;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Une erreur est survenue! Veuillez contacter votre Administrateur!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        var msg = "DAOASS -> updateParams-> TypeErreur: " + ex.Message;
+                        CLog.Log(msg);
+                        return res;
+                    }
+                    finally
+                    {
+                        mConnection.Close();
+                    }
+                }
+            }
+        }
+
+      
+        #endregion
+        
 
         #region Poste
 
@@ -362,7 +500,7 @@ namespace AITBirthday.DAO
                     catch (Exception ex)
                     {
                         MessageBox.Show("Une erreur est survenue! Veuillez contacter votre Administrateur!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        var msg = "DAOASS -> getAllPoste-> TypeErreur: " + ex.Message;
+                        var msg = "DAOASS -> getAllDirection-> TypeErreur: " + ex.Message;
                         CLog.Log(msg);
 
                         return listPays;
@@ -408,7 +546,7 @@ namespace AITBirthday.DAO
                     catch (Exception ex)
                     {
                         MessageBox.Show("Une erreur est survenue! Veuillez contacter votre Administrateur!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        var msg = "DAOASS -> addPoste-> TypeErreur: " + ex.Message;
+                        var msg = "DAOASS -> addDirection-> TypeErreur: " + ex.Message;
                         CLog.Log(msg);
                         return res;
                     }
@@ -453,7 +591,7 @@ namespace AITBirthday.DAO
                     catch (Exception ex)
                     {
                         MessageBox.Show("Une erreur est survenue! Veuillez contacter votre Administrateur!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        var msg = "DAOASS -> updatePoste-> TypeErreur: " + ex.Message;
+                        var msg = "DAOASS -> updateDirection-> TypeErreur: " + ex.Message;
                         CLog.Log(msg);
                         return res;
                     }
@@ -492,7 +630,7 @@ namespace AITBirthday.DAO
                     catch (Exception ex)
                     {
                         MessageBox.Show("Une erreur est survenue! Veuillez contacter votre Administrateur!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        var msg = "DAOASS -> deletePoste-> TypeErreur: " + ex.Message;
+                        var msg = "DAOASS -> deleteDirection-> TypeErreur: " + ex.Message;
                         CLog.Log(msg);
                         return res;
                     }
@@ -543,7 +681,7 @@ namespace AITBirthday.DAO
                     {
                         MessageBox.Show("Une erreur est survenue! Veuillez contacter votre Administrateur!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        var msg = "DAOASS -> getPosteById-> TypeErreur: " + ex.Message;
+                        var msg = "DAOASS -> getDirectionById-> TypeErreur: " + ex.Message;
                         CLog.Log(msg);
 
                         return listPays;
@@ -604,7 +742,7 @@ namespace AITBirthday.DAO
                     catch (Exception ex)
                     {
                         MessageBox.Show("Une erreur est survenue! Veuillez contacter votre Administrateur!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        var msg = "DAOASS -> getAllPoste-> TypeErreur: " + ex.Message;
+                        var msg = "DAOASS -> getAllEntiteAITEK-> TypeErreur: " + ex.Message;
                         CLog.Log(msg);
 
                         return listPays;
@@ -669,7 +807,7 @@ namespace AITBirthday.DAO
                     catch (Exception ex)
                     {
                         MessageBox.Show("Une erreur est survenue! Veuillez contacter votre Administrateur!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        var msg = "DAOASS -> addPoste-> TypeErreur: " + ex.Message;
+                        var msg = "DAOASS -> addEntiteAITEK-> TypeErreur: " + ex.Message;
                         CLog.Log(msg);
                         return res;
                     }
@@ -1049,7 +1187,7 @@ namespace AITBirthday.DAO
                     try
                     {
                         command.CommandText = @"UPDATE BIR_Employe SET 
-                        Nom=@Nom,Prenoms=@Prenoms,IdPoste=@IdPoste,IdDirection=@IdDirection,IdEntiteAITEK=@IdEntiteAITEK,DateNaissance=@DateNaissance,IsDelete=@IsDelete,UserCreation=@UserCreation,UserLastModification=@UserLastModification,DateCreation=@DateCreation,DateLastModification=@DateLastModification,Email=@Email WHERE Id = @Id";
+                        Nom=@Nom,Prenoms=@Prenoms,IdPoste=@IdPoste,IdDirection=@IdDirection,IdEntiteAITEK=@IdEntiteAITEK,DateNaissance=@DateNaissance,IsDelete=@IsDelete,UserLastModification=@UserLastModification,DateLastModification=@DateLastModification,Email=@Email WHERE Id = @Id";
 
                         command.Parameters.Add(new SqlParameter("Id", client.mId));
                         command.Parameters.Add(new SqlParameter("Nom", client.mNom ?? ""));

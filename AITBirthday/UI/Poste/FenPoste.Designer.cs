@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenPoste));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.sBtnAjouter = new DevExpress.XtraEditors.SimpleButton();
             this.sBtnModifier = new DevExpress.XtraEditors.SimpleButton();
@@ -77,6 +78,7 @@
             // 
             // sBtnAjouter
             // 
+            this.sBtnAjouter.Image = ((System.Drawing.Image)(resources.GetObject("sBtnAjouter.Image")));
             this.sBtnAjouter.Location = new System.Drawing.Point(12, 337);
             this.sBtnAjouter.Name = "sBtnAjouter";
             this.sBtnAjouter.Size = new System.Drawing.Size(287, 22);
@@ -87,6 +89,7 @@
             // 
             // sBtnModifier
             // 
+            this.sBtnModifier.Image = ((System.Drawing.Image)(resources.GetObject("sBtnModifier.Image")));
             this.sBtnModifier.Location = new System.Drawing.Point(303, 337);
             this.sBtnModifier.Name = "sBtnModifier";
             this.sBtnModifier.Size = new System.Drawing.Size(270, 22);
@@ -97,6 +100,7 @@
             // 
             // sBtnSupprimer
             // 
+            this.sBtnSupprimer.Image = ((System.Drawing.Image)(resources.GetObject("sBtnSupprimer.Image")));
             this.sBtnSupprimer.Location = new System.Drawing.Point(577, 337);
             this.sBtnSupprimer.Name = "sBtnSupprimer";
             this.sBtnSupprimer.Size = new System.Drawing.Size(263, 22);
@@ -253,9 +257,10 @@
             this.ClientSize = new System.Drawing.Size(833, 353);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FenPoste";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FenPoste";
+            this.Text = "Lister les Postes";
             this.Load += new System.EventHandler(this.FenPoste_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
