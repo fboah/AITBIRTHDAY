@@ -18,9 +18,9 @@ namespace AITBirthday.DAO
         private readonly DbProviderFactory mProvider = DbProviderFactories.GetFactory("System.Data.SqlClient");
 
         private string Appli = "AITBIRTHDAY";
-        
 
-        #region Poste
+
+        #region Params
 
         public List<CParams> getAllParams(string Chaineconnex)
         {
