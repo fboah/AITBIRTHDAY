@@ -164,7 +164,8 @@ namespace AITBirthday.UI.GestionAnniversaire
 
                 //Exiger un Code et Libelle Demandeur 
 
-                if (txtNom.Text.Trim() == string.Empty || txtPrenom.Text.Trim() == string.Empty || txtEmail.Text.Trim() == string.Empty)
+                //if (txtNom.Text.Trim() == string.Empty || txtPrenom.Text.Trim() == string.Empty || txtEmail.Text.Trim() == string.Empty)
+                if (txtNom.Text.Trim() == string.Empty || txtPrenom.Text.Trim() == string.Empty )
                 {
 
                     MessageBox.Show("Veuillez renseigner le Nom,Prénom et Email obligatoirement!", Appli, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -174,7 +175,7 @@ namespace AITBirthday.UI.GestionAnniversaire
                 //Récupérer la liste des Postes existants pour éviter les doublons
                 var ListDem = mDao.getAllEmploye(myChaine);
 
-                var IsExist = ListDem.Exists(x => x.mEmail.ToUpper().Trim() == txtEmail.Text.ToUpper().Trim() && x.mIsDelete == 0);
+                var IsExist = ListDem.Exists(x => x.mEmail.ToUpper().Trim() == txtEmail.Text.ToUpper().Trim() && x.mIsDelete == 0 && x.mNom.ToUpper().Trim() == txtNom.Text.ToUpper().Trim() && x.mPrenoms.ToUpper().Trim() == txtPrenom.Text.ToUpper().Trim());
                 //var IsExistModif = ListDem.Exists(x => x.mNom.ToUpper().Trim() == txtNom.Text.ToUpper().Trim() && x.mPrenoms.ToUpper().Trim() == txtPrenom.Text.ToUpper().Trim() && x.mEmail.ToUpper().Trim() == txtEmail.Text.ToUpper().Trim() && x.mIsDelete == 0);
 
 

@@ -21,8 +21,8 @@ namespace AITBirthday
 {
     public partial class MainForm : Form
     {
-        private string Chaine = @"Initial Catalog=AITSOFTWARE;Data Source=FRANCK\SAGE300;Integrated Security=SSPI";
-        //  private string Chaine = @"Initial Catalog=AITSOFTWARE;Data Source=NATSQL02\SAGE100C;user=SA;password=$AGE100";
+      //  private string Chaine = @"Initial Catalog=AITSOFTWARE;Data Source=FRANCK\SAGE300;Integrated Security=SSPI";
+          private string Chaine = @"Initial Catalog=AITSOFTWARE;Data Source=NATSQL02\SAGE100C;user=SA;password=$AGE100";
 
         private readonly DAOASS mDao = new DAOASS();
 
@@ -59,7 +59,7 @@ namespace AITBirthday
                // MyCParams.mSmtp = "smtp-legacy.office365.com";
                // //MyCParams.mSmtpPassword = "2017Aitek";
                //   MyCParams.mSmtpPassword = "2023Aitek";
-               //// MyCParams.mSmtpPassword = "2022Aitek!!";
+               //// MyCParams.mSmtpPassword = "2022Aitek!!";NOUV MDP : 2017Aitek@
 
                // MyCParams.mPort = 587;
 
